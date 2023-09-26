@@ -35,14 +35,15 @@ To run this program, follow these steps:
 
 1. Clone the repository to your local machine.
 
-````bash
+```bash
 git clone https://github.com/Asadullah-Imran/Java_miniprojects.git
-``` navigate the project directory
+ navigate the project directory
 cd TemperatureConversion
-```Compile the Java source code.
+Compile the Java source code.
 javac TempConversion.java
-``` Run the program
+ Run the program
 java TempConversion
+```
 
 ## Contrubuting
 
@@ -51,5 +52,3 @@ If you would like to contribute to this project or report any issues, please fee
 ## License
 
 This project is licensed under the [MIT License](https://github.com/Asadullah-Imran/Java_miniprojects/blob/main/LICENSE).
-
-````

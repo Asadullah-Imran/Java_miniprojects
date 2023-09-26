@@ -1,6 +1,6 @@
-# Number System Converter
+# Number System Conversion Calculator
 
-A simple Java program that converts decimal numbers to binary, octal, or hexadecimal representations.
+A Java program that allows you to convert numbers between different bases (Decimal, Binary, Octal, Hexadecimal).
 
 ## Table of Contents
 
@@ -13,21 +13,22 @@ A simple Java program that converts decimal numbers to binary, octal, or hexadec
 
 ## Introduction
 
-The Number System Converter is a Java program that allows you to convert decimal numbers to binary, octal, or hexadecimal representations. It provides an easy-to-use menu interface for selecting the desired conversion.
+The Number System Conversion Calculator is a Java program that provides an interactive interface for converting numbers between different number bases. It supports conversions between Decimal, Binary, Octal, and Hexadecimal representations.
 
 ## Features
 
-- Convert decimal numbers to binary, octal, or hexadecimal.
-- Interactive menu for choosing the conversion type.
-- Supports a wide range of decimal input values.
+- Convert numbers between Decimal, Binary, Octal, and Hexadecimal bases.
+- Interactive menu for selecting the base of the input number.
+- Flexible conversion options for various base conversions.
 
 ## Usage
 
-The program offers three main conversion options:
+The program offers four main conversion options:
 
-1. Convert to Binary: Converts a decimal number to binary representation.
-2. Convert to Octal: Converts a decimal number to octal representation.
-3. Convert to Hexadecimal: Converts a decimal number to hexadecimal representation.
+1. Convert Decimal to Binary, Octal, or Hexadecimal.
+2. Convert Binary to Decimal, Octal, or Hexadecimal.
+3. Convert Octal to Decimal, Binary, or Hexadecimal.
+4. Convert Hexadecimal to Decimal, Binary, or Octal.
 
 ## How to Run
 

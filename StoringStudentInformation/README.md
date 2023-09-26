@@ -47,4 +47,4 @@ Contributions to improve and extend the functionality of this Student Record Man
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE).
+This project is licensed under the [MIT License](https://github.com/Asadullah-Imran/Java_miniprojects/blob/main/LICENSE).

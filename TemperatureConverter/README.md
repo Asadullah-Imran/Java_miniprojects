@@ -35,15 +35,14 @@ To run this program, follow these steps:
 
 1. Clone the repository to your local machine.
 
-```bash
-git clone https://github.com/Asadullah-Imran/Java_miniprojects.git
- navigate the project directory
-cd TemperatureConversion
+bash
+`git clone https://github.com/Asadullah-Imran/Java_miniprojects.git`
+navigate the project directory
+`cd TemperatureConversion`
 Compile the Java source code.
-javac TempConversion.java
- Run the program
-java TempConversion
-```
+`javac TempConversion.java`
+Run the program
+`java TempConversion`
 
 ## Contrubuting
 

@@ -40,7 +40,7 @@ bash
 `
 
 navigate the project directory
-`cd number-system-converter
+`cd NumberSystem
 `
 
 Compile the Java source code.

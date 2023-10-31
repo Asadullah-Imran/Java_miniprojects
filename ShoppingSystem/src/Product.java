@@ -1,4 +1,4 @@
-abstract class Product extends ProductDetails{
+abstract class Product implements ProductDetails{
 String name;
 String model;
 int price;

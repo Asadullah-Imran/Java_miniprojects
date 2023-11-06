@@ -37,13 +37,7 @@ public class WeatherAppGui extends JFrame {
         //adding searchText field
         add(searchTextField);
 
-        //Search button
-        JButton searchButton= new JButton(loadImage("src/assets/search.png"));
 
-        //change the cursor to a hand cursor when hovering this button
-        searchButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        searchButton.setBounds(375 ,13, 47, 45);
-        add(searchButton);
 
 
 
@@ -94,6 +88,16 @@ public class WeatherAppGui extends JFrame {
         windSpeedText.setBounds(310,500,85,55);
         windSpeedText.setFont(new Font("Dialog", Font.BOLD, 16));
         add(windSpeedText);
+
+
+
+        //Search button
+        JButton searchButton= new JButton(loadImage("src/assets/search.png"));
+
+        //change the cursor to a hand cursor when hovering this button
+        searchButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        searchButton.setBounds(375 ,13, 47, 45);
+        add(searchButton);
 
 
     }

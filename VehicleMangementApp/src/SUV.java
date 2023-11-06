@@ -20,7 +20,7 @@ public class SUV extends Car {
     }
 
     public String toString(){
-        return "This car name is "+ getName()+ " \nthis is a "+ getType() +"type car" +"\n"   ;
+        return "This car name is "+ getName()+ " \nthis is a "+ getType() +" type car" +"\n"   ;
     }
 
 }

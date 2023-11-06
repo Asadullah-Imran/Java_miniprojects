@@ -1,8 +1,8 @@
 
-public class Sedan extends Car {
+public class Coupe extends Car {
     int a,b,c;
-    public Sedan(String name,int gears, boolean isManual,int gearA, int gearB,int gearC) {
-        super(name, 4, 4, gears, isManual, "Sedan");
+    public Coupe(String name,int gears, boolean isManual,int gearA, int gearB,int gearC) {
+        super(name, 4, 2, gears, isManual, "Coupe");
         a=gearA;
         b=gearB;
         c=gearC;

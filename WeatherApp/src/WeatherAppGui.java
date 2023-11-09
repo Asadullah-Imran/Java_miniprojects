@@ -1,11 +1,17 @@
+import org.json.simple.JSONObject;
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
 public class WeatherAppGui extends JFrame {
+    private JSONObject weatherData;
+
     public WeatherAppGui(){
         super("Weather App");
         //configure that on close button it will end the program
@@ -97,6 +103,57 @@ public class WeatherAppGui extends JFrame {
         //change the cursor to a hand cursor when hovering this button
         searchButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         searchButton.setBounds(375 ,13, 47, 45);
+        searchButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //get location from user ;
+                String userInput= searchTextField.getText();
+
+                //validate input - remove whitespaces to wnsure non empty text
+                if(userInput.replaceAll("\\s","").length()<=0){
+                    return;
+                }
+                //retrieve weather data
+                weatherData=WeatherApp.getWeatherData(userInput);
+
+                //update gui
+
+                //update weather imagee
+                String weatherCondition=(String) weatherData.get("weather_condition");
+                //depending on the condition, we will update the weather image tha tcorespinds with the condtion
+                switch(weatherCondition){
+                    case "Clear":
+                        weatherConditionImage.setIcon(loadImage("src/assets/clear.png"));
+                        break;
+                    case "Cloudy":
+                        weatherConditionImage.setIcon(loadImage("src/assets/cloudy.png"));
+                        break;
+                    case "Rain":
+                        weatherConditionImage.setIcon(loadImage("src/assets/rain.png"));
+                        break;
+                    case "Snow":
+                        weatherConditionImage.setIcon(loadImage("src/assets/snow.png"));
+                        break;
+
+                }
+
+                //update temperature text
+                double temperature =(double) weatherData.get("temperature");
+                temperatureText.setText(temperature+" C");
+
+                //update weather condition text
+                weatherConditionDesc.setText(weatherCondition);
+
+                //update Humidity Text
+                long humidity= (long) weatherData.get("humidity");
+                humidityText.setText("<html><b>Humidity</b> "+ humidity +"%</html>");
+
+                //update windspeed text
+                double windspeed= (double) weatherData.get("windspeed");
+                windSpeedText.setText("<html><b>Windspeed</b> "+ windspeed +"km/h</html>");
+            }
+        });
+
         add(searchButton);
 
 

@@ -7,8 +7,8 @@ public class AppLauncher {
             public void run() {
 
                 //display out weather app gui
-                //new WeatherAppGui().setVisible(true);
-                System.out.println(WeatherApp.getCurrentTime());
+                new WeatherAppGui().setVisible(true);
+
             }
         });
     }

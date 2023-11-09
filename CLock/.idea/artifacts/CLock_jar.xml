@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="CLock:jar">
+    <output-path>$USER_HOME$/Desktop</output-path>
+    <root id="archive" name="CLock.jar">
+      <element id="module-output" name="CLock" />
+    </root>
+  </artifact>
+</component>

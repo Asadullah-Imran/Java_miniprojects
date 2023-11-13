@@ -1,8 +1,11 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 //render the GUI components (frontend)
 public class PasswordGeneratorGUI extends JFrame {
+private  PasswordGenerator passwordGenerator;
     public PasswordGeneratorGUI(){
         //render frame and a titile
         super("Password Generator");
@@ -13,10 +16,21 @@ public class PasswordGeneratorGUI extends JFrame {
         setResizable(false);
         setLayout(null);
 
+        getContentPane().setBackground(new Color(173, 216, 230)); // RGB values for light blue
+
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
         // Center the GUI to the screen
         setLocationRelativeTo(null);
+
+        // Set app icon
+        ImageIcon icon = new ImageIcon("src/assets/logo.png");
+        setIconImage(icon.getImage());
+
+
+        //init password generator;
+
+        passwordGenerator = new PasswordGenerator();
 
 
         //render GUI components
@@ -24,8 +38,6 @@ public class PasswordGeneratorGUI extends JFrame {
 
 
     }
-
-
 
     private void addGUIComponents(){
         //create title text
@@ -38,7 +50,7 @@ public class PasswordGeneratorGUI extends JFrame {
         titleLabel.setHorizontalAlignment(SwingConstants.CENTER);
 
         //set x y coordinates
-        titleLabel.setBounds(0,10,540,39);
+        titleLabel.setBounds(0,20,540,39);
 
         // add to GUI
         add(titleLabel);
@@ -47,9 +59,11 @@ public class PasswordGeneratorGUI extends JFrame {
         //CREATE Result text
         JTextArea passwordOutput = new JTextArea();
 
+
         //prevent editing the textArea
         passwordOutput.setEditable(false);
-        passwordOutput.setFont(new Font("dialog",Font.BOLD, 32));
+        passwordOutput.setFont(new Font("dialog",Font.BOLD, 28));
+
 
         //add scrollablity in case output becomes too big
         JScrollPane passwordOutputPane= new JScrollPane(passwordOutput);
@@ -76,34 +90,62 @@ public class PasswordGeneratorGUI extends JFrame {
 
         //create toggle buttons
         //uppercase latter toggle
-        JToggleButton uppercaseToggle = new JToggleButton("Uppercase");
+        RoundedToggleButton uppercaseToggle = new RoundedToggleButton("Uppercase");
         uppercaseToggle.setBounds(25,302,225,56);
         uppercaseToggle.setFont(new Font("Dialog",Font.PLAIN,26));
         add(uppercaseToggle);
 
         //lowercase toggle button
-        JToggleButton lowercaseToggle= new JToggleButton("Lowercase");
+        RoundedToggleButton lowercaseToggle= new RoundedToggleButton("Lowercase");
         lowercaseToggle.setBounds(282,302,225,56);
         lowercaseToggle.setFont(new Font("Dialog",Font.PLAIN,26));
         add(lowercaseToggle);
 
         //Numbers latter toggle
-        JToggleButton numbersToggle = new JToggleButton("Numbers");
+        RoundedToggleButton numbersToggle = new RoundedToggleButton("Numbers");
         numbersToggle.setBounds(25,373,225,56);
         numbersToggle.setFont(new Font("Dialog",Font.PLAIN,26));
         add(numbersToggle);
 
         //Symbols toggle button
-        JToggleButton symbolsToggle= new JToggleButton("Symbols");
+        RoundedToggleButton symbolsToggle= new RoundedToggleButton("Symbols");
         symbolsToggle.setBounds(282,373,225,56);
         symbolsToggle.setFont(new Font("Dialog",Font.PLAIN,26));
         add(symbolsToggle);
 
 
         //create generate BUtton
-        JButton generateButton = new JButton("Generate");
+        RoundedButton generateButton = new RoundedButton("Generate");
         generateButton.setFont(new Font("Dialog",Font.PLAIN,32));
-        generateButton.setBounds(155,477,222,41);
+        generateButton.setBounds(155,460,222,46);
+        generateButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //validation: generate a password only when length >0 and one of hte toggled buttons is pressed
+                if (passwordLengthInputArea.getText().length() <= 0) return;
+                boolean anyToggleSelected = lowercaseToggle.isSelected() ||
+                        uppercaseToggle.isSelected() ||
+                        numbersToggle.isSelected() ||
+                        symbolsToggle.isSelected();
+
+
+
+                //generate a password
+                //convert a text to a integer value
+                int passwordLength = Integer.parseInt(passwordLengthInputArea.getText());
+
+                if(anyToggleSelected){
+                    String generatedPassword= passwordGenerator.generatePassword(passwordLength,uppercaseToggle.isSelected(),lowercaseToggle.isSelected(),numbersToggle.isSelected(),symbolsToggle.isSelected());
+
+
+                    //display password back to the user
+                    passwordOutput.setText(generatedPassword);
+                }
+
+
+            }
+
+        });
         add(generateButton);
     }
 }
